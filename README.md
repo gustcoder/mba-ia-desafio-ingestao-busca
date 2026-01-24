@@ -19,7 +19,7 @@
 
 ---
 
-## 🚀 Como Executar os Projetos
+## 💻 Como Executar o Desafio
 
 **@todo**
 
