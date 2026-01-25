@@ -1,6 +1,8 @@
+from langchain_core.prompts import PromptTemplate
+
 PROMPT_TEMPLATE = """
 CONTEXTO:
-{contexto}
+{context}
 
 REGRAS:
 - Responda somente com base no CONTEXTO.
@@ -20,10 +22,13 @@ Pergunta: "Você acha isso bom ou ruim?"
 Resposta: "Não tenho informações necessárias para responder sua pergunta."
 
 PERGUNTA DO USUÁRIO:
-{pergunta}
+{question}
 
 RESPONDA A "PERGUNTA DO USUÁRIO"
 """
 
-def search_prompt(question=None):
-    pass
+def search_prompt(user_question: str = None):
+  context = "Faturamento de Empresas" # @todo obter conteúdo do PDF
+  prompt = PromptTemplate(template=PROMPT_TEMPLATE, input_variables=["context", "question"])
+  message = PROMPT_TEMPLATE.format(context=context, question=user_question)
+  return message

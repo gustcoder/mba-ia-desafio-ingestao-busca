@@ -24,8 +24,11 @@
 **@todo**
 
 ```bash
-# Navegue até a pasta do desafio
-cd prompt-engineering/desafio-ingestao-busca-semantica-langchain-postgres
+# Navegue até a raiz da pasta do desafio
+cd mba-ia-desafio-ingestao-busca
 
 # Suba o ambiente
-docker-compose up -d
+docker compose up -d
+
+# Executar o CLI
+docker exec -it python_app python src/chat.py
