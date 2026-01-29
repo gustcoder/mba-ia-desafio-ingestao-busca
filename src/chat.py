@@ -1,14 +1,9 @@
 import typer
-from typing import List, Dict
 from rich import print
 from search import search_prompt
 
 def main():
-    """
-    Inicia o chat interativo do desafio de MBA.
-    """
     print(f"[bold green]Bem-vindo(a) ao chat![/bold green] Para sair digite [bold red]exit[/bold red].\n")
-    
     while True:
         user_question = typer.prompt("PERGUNTA")
         
