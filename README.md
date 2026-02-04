@@ -15,7 +15,7 @@
 * Linguagem: Python
 * Framework: LangChain
 * Banco de dados: PostgreSQL + pgVector
-* Execução do banco de dados: Docker & Docker Compose (docker-compose fornecido no repositório de exemplo)
+* Execução do banco de dados: Docker & Docker Compose
 
 ---
 
