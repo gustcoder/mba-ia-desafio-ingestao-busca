@@ -21,8 +21,6 @@
 
 ## 💻 Como Executar o Desafio
 
-**@todo**
-
 ```bash
 # Navegue até a raiz da pasta do desafio
 cd mba-ia-desafio-ingestao-busca
