@@ -10,7 +10,7 @@
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Tecnologias e Requisitos
 
 * Linguagem: Python
 * Framework: LangChain
