@@ -30,6 +30,7 @@ docker compose up -d
 
 # OPEN AI KEY
 Preencha a variável "OPENAI_API_KEY" no .env com sua chave
+Obs.: o Docker já irá copiar o .env.example como template criando um .env
 
 # Realizar Ingestão
 docker exec -it python_app python src/ingest.py
