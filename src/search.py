@@ -1,4 +1,12 @@
+import os
+from dotenv import load_dotenv
+from helpers import check_env_keys, get_embeddings, get_pg_vector_store
+
 from langchain_core.prompts import PromptTemplate
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_postgres import PGVector
+
+load_dotenv()
 
 PROMPT_TEMPLATE = """
 CONTEXTO:
@@ -28,7 +36,26 @@ RESPONDA A "PERGUNTA DO USUÁRIO"
 """
 
 def search_prompt(user_question: str = None):
-  context = "Faturamento de Empresas" # @todo obter conteúdo do PDF
+  check_env_keys()
+  open_ai_key = os.getenv("OPENAI_API_KEY")
+
+  embeddings = get_embeddings()
+  store = get_pg_vector_store(embeddings)
+  context = store.similarity_search_with_score(user_question, k=10)
+
   prompt = PromptTemplate(template=PROMPT_TEMPLATE, input_variables=["context", "question"])
-  message = PROMPT_TEMPLATE.format(context=context, question=user_question)
-  return message
+  model = ChatOpenAI(
+    model="gpt-4o-mini",
+    api_key=open_ai_key
+  )
+
+  chain = prompt | model
+
+  result = chain.invoke(
+    {
+      "context": context,
+      "question": user_question
+    }
+  )
+
+  return result.content

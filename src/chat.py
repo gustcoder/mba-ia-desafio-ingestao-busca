@@ -10,17 +10,13 @@ def main():
         if user_question.lower() in ["sair", "exit", "quit"]:
             print("[bold red]Sessão encerrada.[/bold red]")
             break
-        
-        info = f"IA: Buscando informações sobre '{user_question}'..."
-        
-        print(f"[bold blue]{info}[/bold blue]\n\n")
 
-        chain = search_prompt(user_question)
+        result = search_prompt(user_question)
 
-        if not chain:
+        if not result:
             print("Não foi possível iniciar o chat. Verifique os erros de inicialização.")
             return
-        pass
+        print(f"[bold purple]RESPOSTA: {result}[/bold purple]\n\n")
 
 if __name__ == "__main__":
     main()

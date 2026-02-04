@@ -30,5 +30,11 @@ cd mba-ia-desafio-ingestao-busca
 # Suba o ambiente
 docker compose up -d
 
+# OPEN AI KEY
+Preencha a variável "OPENAI_API_KEY" no .env com sua chave
+
+# Realizar Ingestão
+docker exec -it python_app python src/ingest.py
+
 # Executar o CLI
 docker exec -it python_app python src/chat.py
